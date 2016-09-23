@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Basic.unity
-  isLoaded: 1
-  isActive: 1
