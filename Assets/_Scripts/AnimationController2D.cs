@@ -29,7 +29,6 @@ public class AnimationController2D : MonoBehaviour {
 	}
 
 	public void setAnimation (string animationName){
-
 		int hash = Animator.StringToHash(animationName);
 
 		if (_animator != null && _animator.HasState(0,hash)){
