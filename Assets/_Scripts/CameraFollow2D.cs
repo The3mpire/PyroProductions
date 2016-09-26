@@ -24,7 +24,7 @@ public class CameraFollow2D : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        currentTarget = target;
+		
     }
 
     // Update is called once per frame

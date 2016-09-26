@@ -9,7 +9,7 @@ public class AnimationController2D : MonoBehaviour {
 	private Animator _animator;
 
 	void Awake () {
-		_animator = this.GetComponent<Animator>();
+		_animator = this.GetComponentInChildren<Animator>();
 	}
 
 	public string getFacing (){ return _currentDirection; }
@@ -18,13 +18,13 @@ public class AnimationController2D : MonoBehaviour {
 	public void setFacing (string newDirection){
 
 		//Check that were' not already facing the new direction
-		if ( newDirection != _currentDirection){
+		if (newDirection != _currentDirection){
 
-			//Flip the character sprite
-			this.transform.localScale = new Vector3 (-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            //Flip the character sprite
+            GetComponentInChildren<SpriteRenderer>().flipX = GetComponentInChildren<SpriteRenderer>().flipX  ? false : true;
 
-			//Update the member variable that tracks the facing direction
-			_currentDirection = newDirection;
+            //Update the member variable that tracks the facing direction
+            _currentDirection = newDirection;
 		}
 	}
 
