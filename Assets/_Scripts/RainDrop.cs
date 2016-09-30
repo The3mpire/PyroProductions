@@ -23,12 +23,18 @@ public class RainDrop : MonoBehaviour {
 
 
 	void OnTriggerEnter2D(Collider2D col){
-		if(col.CompareTag("Ground")){
-			gameObject.SetActive(false);
+		switch (col.tag) {
+			case "Ground":
+				gameObject.SetActive (false);
+				// plop animation?
+				break;
+			case "Player":
+				gameObject.SetActive (false);
+				//TODO trigger steam animation
+				break;
 		}
 	}
-
-
+		
 	void FixedUpdate(){
 	}
 
