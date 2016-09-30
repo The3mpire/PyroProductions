@@ -46,8 +46,8 @@ public class PlayerController : MonoBehaviour {
 
         healthBar.SetActive(true);
 
-        _controller = gameObject.GetComponent<CharacterController2D>();
-        _animator = gameObject.GetComponent<AnimationController2D>();
+        _controller = GetComponent<CharacterController2D>();
+        _animator = GetComponent<AnimationController2D>();
 
         gameCamera.GetComponent<CameraFollow2D>().startCameraFollow(this.gameObject);
         currHealth = startHealth;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
             playerInput();
 
         }
-       Vector3 velocity = _controller.velocity;
+        Vector3 velocity = _controller.velocity;
 
         velocity.x = 0;
 

@@ -7,6 +7,8 @@ TagManager:
   - Damaging
   - Growing
   - KillZ
+  - Win
+  - Ground
   layers:
   - Default
   - TransparentFX
