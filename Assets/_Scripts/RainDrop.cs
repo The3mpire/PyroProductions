@@ -15,10 +15,10 @@ public class RainDrop : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		if (!gameObject.active) {
-			spawn (1);
-		}
+        // stop falling if we're past the ground
+        if(gameObject.transform.position.y < despawn) {
+            gameObject.SetActive(false);
+        }
 	}
 
 
@@ -43,6 +43,3 @@ public class RainDrop : MonoBehaviour {
 		gameObject.SetActive (true);
 	}
 }
-// rain handler that has a list of raindrops
-// each raindrop just turns itself off
-// rain handler turns raindrops on and then sets them at a random x

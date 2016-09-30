@@ -277,7 +277,6 @@ public class CharacterController2D : MonoBehaviour
 		// set our becameGrounded state based on the previous and current collision state
 		if( !collisionState.wasGroundedLastFrame && collisionState.below ){
 			collisionState.becameGroundedThisFrame = true;
-
 		}
 
 		// if we are going up a slope we artificially set a y velocity so we need to zero it out here

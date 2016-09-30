@@ -167,8 +167,13 @@ public class PlayerController : MonoBehaviour {
     /// <param name="dmg"></param>
     private void PlayerDamage(int dmg) {
         currHealth -= dmg;
-
-        updateHealth();
+        if(currHealth > 0) {
+            updateHealth();
+        }
+        //turn off the player collider so he doesn't keep dying
+        else {
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
 
         if(currHealth <= 0) {
             PlayerDeath();

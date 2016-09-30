@@ -3436,6 +3436,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013150495880, guid: 975e0bfd04aeb40088508c31a348ea21,
+        type: 2}
+      propertyPath: beginRange
+      value: -3.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013150495880, guid: 975e0bfd04aeb40088508c31a348ea21,
+        type: 2}
+      propertyPath: endRange
+      value: 20.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013150495880, guid: 975e0bfd04aeb40088508c31a348ea21,
+        type: 2}
+      propertyPath: height
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013150495880, guid: 975e0bfd04aeb40088508c31a348ea21,
+        type: 2}
+      propertyPath: rainPool
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013150495880, guid: 975e0bfd04aeb40088508c31a348ea21,
+        type: 2}
+      propertyPath: spawnRate
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 975e0bfd04aeb40088508c31a348ea21, type: 2}
   m_IsPrefabParent: 0
@@ -4034,11 +4059,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000013658354438, guid: 498b9e16c6755480298d1586b9a85bd0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.05
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 4000013658354438, guid: 498b9e16c6755480298d1586b9a85bd0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.8
+      value: 7.4
       objectReference: {fileID: 0}
     - target: {fileID: 4000013658354438, guid: 498b9e16c6755480298d1586b9a85bd0, type: 2}
       propertyPath: m_LocalPosition.z
