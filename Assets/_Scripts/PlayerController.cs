@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
             playerInput();
 
         }
-        Vector3 velocity = _controller.velocity;
+       Vector3 velocity = _controller.velocity;
 
         velocity.x = 0;
 
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour {
             _animator.setAnimation("Idle");
         }
 
-        if (jump && facing == Direction.right) {
+        if (jump) {
             velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
 
             //jump anim
@@ -110,48 +110,12 @@ public class PlayerController : MonoBehaviour {
         if (playerControl) {
             _controller.move(velocity * Time.deltaTime);
         }
+
 
     }
-
-    //TODO ask matt why this doesn't work :(
+		
     void FixedUpdate() {
-        /*
-         Vector3 velocity = _controller.velocity;
 
-        velocity.x = 0;
-
-        if (facing == Direction.left) {
-            velocity.x = -1 * walkSpeed;
-            if (_controller.isGrounded) {
-                _animator.setAnimation("Run");
-            }
-            _animator.setFacing("Left");
-        }
-        else if (facing == Direction.right) {
-            velocity.x = walkSpeed;
-            if (_controller.isGrounded) {
-                _animator.setAnimation("Run");
-            }
-            _animator.setFacing("Right");
-        }
-        else {
-            _animator.setAnimation("Idle");
-        }
-
-        if (jump && facing == Direction.right) {
-            velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
-
-            //jump anim
-            _animator.setAnimation("Jump");
-
-            jump = false;
-        }
-
-        velocity.y += gravity * Time.deltaTime;
-        if (playerControl) {
-            _controller.move(velocity * Time.deltaTime);
-        }
-        */
     }
 
     private void playerInput() {
@@ -215,25 +179,27 @@ public class PlayerController : MonoBehaviour {
     /// Grows the player
     /// </summary>
     /// <param name="food"></param>
-    private void PlayerGrow(int food) {
-        currHealth += food;
-
-        if(currHealth <= maxHealth) {
-            updateHealth();
-        }
-
+	private void PlayerGrow(int food) {
+		currHealth += food;
+		//make sure our health doesn't overflow
+		if (currHealth > maxHealth) {
+			currHealth = maxHealth;
+		}
+		updateHealth();
     }
 
     /// <summary>
     /// Updates player health
     /// </summary>
     private void updateHealth() {
-        float normalizedHealth = (float)currHealth / (float)maxHealth;
 
-        healthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(normalizedHealth * 256, 32);
+		//update healthbar
+		float normalizedHealth = (float)currHealth / (float)maxHealth;
+		healthBar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (normalizedHealth * 256, 32);
 
+
+		//update robot size
         Vector3 prevScale = transform.localScale;
-
         float newScale = minScale + (normalizedHealth * (maxScale - minScale));
 
         GetComponent<Transform>().localScale = new Vector3(newScale, newScale, 0);
