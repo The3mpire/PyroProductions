@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000010531140272}
   - 212: {fileID: 212000011184250320}
   - 61: {fileID: 61000013615499898}
+  - 61: {fileID: 61000012045088752}
   m_Layer: 8
   m_Name: Block_1x8
   m_TagString: Ground
@@ -41,6 +42,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &61000012045088752
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011476551838}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 8}
 --- !u!61 &61000013615499898
 BoxCollider2D:
   m_ObjectHideFlags: 1

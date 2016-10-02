@@ -1,15 +1,15 @@
 fileFormatVersion: 2
 guid: be6861c556a9baf4cb626639616d337a
-timeCreated: 1474668773
+timeCreated: 1475440633
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Block_1x1
     21300002: Block_2x1
-    21300004: Block_Grid_2
+    21300004: Block_3x1
     21300006: Block_4x1
-    21300008: Block_Grid_4
-    21300010: Block_Grid_5
+    21300008: Block_5x1
+    21300010: Block_6x1
     21300012: Block_Grid_6
     21300014: Block_8x1
     21300016: Block_1x2
@@ -18,7 +18,7 @@ TextureImporter:
     21300022: Block_Grid_11
     21300024: Block_Grid_12
     21300026: Block_Grid_13
-    21300028: Block_Grid_14
+    21300028: Block_7x1
     21300030: Block_Grid_15
     21300032: Block_Grid_16
     21300034: Block_Grid_17
@@ -143,12 +143,12 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Block_Grid_2
+      name: Block_3x1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 0
         y: 448
-        width: 64
+        width: 192
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -169,12 +169,12 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Block_Grid_4
+      name: Block_5x1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 0
         y: 448
-        width: 64
+        width: 320
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -182,12 +182,12 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Block_Grid_5
+      name: Block_6x1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 0
         y: 448
-        width: 64
+        width: 384
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -299,12 +299,12 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Block_Grid_14
+      name: Block_7x1
       rect:
         serializedVersion: 2
-        x: 384
+        x: 0
         y: 384
-        width: 64
+        width: 448
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

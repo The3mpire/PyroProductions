@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000012499999294}
   - 212: {fileID: 212000010385291342}
   - 61: {fileID: 61000012205251620}
+  - 61: {fileID: 61000011002348258}
   m_Layer: 8
   m_Name: Block_2x1
   m_TagString: Ground
@@ -41,6 +42,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &61000011002348258
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014285202546}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1}
 --- !u!61 &61000012205251620
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -84,7 +99,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300012, guid: be6861c556a9baf4cb626639616d337a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10bc7e55bf4767043bf97da6e592d399, type: 3}
   m_Color: {r: 0.346, g: 0.58823526, b: 0.44117644, a: 1}
   m_FlipX: 0
   m_FlipY: 0
