@@ -51,5 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8aa2e8c7772473fbdf2aae5d148e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rainPool: 100
+  rainPool: 200
+  beginRange: -3.94
+  endRange: 20.24
+  height: 50
+  spawnRate: 1
   rainDrop: {fileID: 1000011710027810, guid: 498b9e16c6755480298d1586b9a85bd0, type: 2}

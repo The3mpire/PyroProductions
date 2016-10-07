@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public GameObject healthBar;
     public GameObject gameOverPanel;
     public GameObject winText;
+	public GameObject pausePanel;
 
     public float walkSpeed = 3;
     public float jumpHeight = 2;
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour {
     private int currHealth = 0;
     private bool playerControl = true;
     private bool jump = false;
+	private bool menu = false;
 
     private Direction facing = Direction.right;
 
@@ -57,6 +59,16 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown (KeyCode.Escape) && !menu) {
+			pausePanel.SetActive (true);
+			menu = true;
+			Time.timeScale = 0;
+		} else if (Input.GetKeyDown (KeyCode.Escape) && menu) {
+			pausePanel.SetActive (false);
+			menu = false;
+			Time.timeScale = 1;
+		}
+
 
         // is player dead
         if (playerControl) {
@@ -218,7 +230,8 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     private void PlayerDeath() {
         playerControl = false;
-        _animator.setAnimation("Death");
+		this.gameObject.SetActive (false);
+
         healthBar.SetActive(false);
         gameOverPanel.SetActive(true);
     }
