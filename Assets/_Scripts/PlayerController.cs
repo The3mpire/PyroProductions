@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("The minimum size the player will be")]
     public float minScale = .4f;
 
-	public SaveLoad singleton;
-
     private CharacterController2D _controller;
     private AnimationController2D _animator;
     [SerializeField]
@@ -43,6 +41,8 @@ public class PlayerController : MonoBehaviour {
     private bool jump = false;
 	private bool menu = false;
 
+    private int level;
+
     private Direction facing = Direction.right;
 
         
@@ -50,10 +50,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         Time.timeScale = 1;
 
-		singleton.level = SceneManager.GetActiveScene ().buildIndex;
-		PlayerPrefs.SetInt ("level", singleton.level);
-
-        healthBar.SetActive(true);
+		healthBar.SetActive(true);
 
         _controller = GetComponent<CharacterController2D>();
         _animator = GetComponent<AnimationController2D>();
@@ -62,6 +59,8 @@ public class PlayerController : MonoBehaviour {
         currHealth = startHealth;
 
         updateHealth();
+
+        level = SceneManager.sceneCountInBuildSettings;
     }
 	
 	// Update is called once per frame
@@ -255,17 +254,16 @@ public class PlayerController : MonoBehaviour {
     }
 
 	private void PlayerNextLevel(){
-		
+        GameManager.NextLevel(level);
 	}
 
     /// <summary>
     /// Stop time and tell the player they won
     /// </summary>
-    private void PlayerWin() {
+    public void PlayerWin() {
+
         winText.SetActive(true);
         Time.timeScale = 0;
-		//TODO update to next level when those have started. In GameManager
-		PlayerPrefs.SetInt ("level", singleton.level);
     }
 #endregion
 }
