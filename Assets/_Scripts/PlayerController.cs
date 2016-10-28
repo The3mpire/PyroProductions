@@ -2,6 +2,8 @@
 using System.Collections;
 using Prime31;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 [RequireComponent(typeof(CharacterController2D), typeof(AnimationController2D))]
 public class PlayerController : MonoBehaviour {
 
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("The minimum size the player will be")]
     public float minScale = .4f;
 
+	public SaveLoad singleton;
+
     private CharacterController2D _controller;
     private AnimationController2D _animator;
     [SerializeField]
@@ -45,6 +49,9 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         Time.timeScale = 1;
+
+		singleton.level = SceneManager.GetActiveScene ().buildIndex;
+		PlayerPrefs.SetInt ("level", singleton.level);
 
         healthBar.SetActive(true);
 
@@ -247,12 +254,18 @@ public class PlayerController : MonoBehaviour {
         gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
     }
 
+	private void PlayerNextLevel(){
+		
+	}
+
     /// <summary>
     /// Stop time and tell the player they won
     /// </summary>
     private void PlayerWin() {
         winText.SetActive(true);
         Time.timeScale = 0;
+		//TODO update to next level when those have started. In GameManager
+		PlayerPrefs.SetInt ("level", singleton.level);
     }
 #endregion
 }

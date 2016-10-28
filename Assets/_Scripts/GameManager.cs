@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+	private int levelCount = SceneManager.sceneCountInBuildSettings ();
+
 	// Use this for initialization
 	void Start () {
 	
@@ -26,7 +28,19 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(1);
     }
 
-    public void ExitGame() {
+	public void ExitGame() {
         Application.Quit();
     }
+
+	public void NextLevel(){
+		//loads the next scene as long as there is one
+		if (SceneManager.GetActiveScene ().buildIndex != levelCount) {
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex++);
+			PlayerPrefs.SetInt ("level", SceneManager.GetActiveScene().buildIndex);
+		}
+		//TODO otherwise call playerwin
+		else {
+			//GameObject.find ("Player");
+		}
+	}
 }
