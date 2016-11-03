@@ -3631,6 +3631,12 @@ Prefab:
       propertyPath: spawnRate
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013150495880, guid: 975e0bfd04aeb40088508c31a348ea21,
+        type: 2}
+      propertyPath: rainDrop
+      value: 
+      objectReference: {fileID: 1000011710027810, guid: 498b9e16c6755480298d1586b9a85bd0,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 975e0bfd04aeb40088508c31a348ea21, type: 2}
   m_IsPrefabParent: 0

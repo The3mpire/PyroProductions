@@ -33,9 +33,10 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("The minimum size the player will be")]
     public float minScale = .4f;
 
+
     private CharacterController2D _controller;
     private AnimationController2D _animator;
-    [SerializeField]
+    //[SerializeField]
     private int currHealth = 0;
     private bool playerControl = true;
     private bool jump = false;
@@ -59,8 +60,6 @@ public class PlayerController : MonoBehaviour {
         currHealth = startHealth;
 
         updateHealth();
-
-        StartCoroutine(Shrink());
 
         level = SceneManager.sceneCountInBuildSettings;
     }
@@ -178,39 +177,29 @@ public class PlayerController : MonoBehaviour {
                 PlayerGrow(food);
                 break;
             case "Destructable":
-                //TODO split into 2 and shrink
 
-                BoxCollider2D bigBox = col.GetComponent<BoxCollider2D>();
+                Destructable dest = col.GetComponentInParent<Destructable>();
 
-                Vector2 left = Vector2.zero;
+                dest.left.enabled = true;
+                dest.right.enabled = true;
+                dest.main.enabled = false;
 
-                left = bigBox.transform.position;
-                left.x = (bigBox.transform.position.x) - (float)(.25*bigBox.size.x);
-                Vector2 box2 = left;
-                box2.x += box2.x;
-
-                //create box collider
+                dest.Shrink(dest.left);
+                dest.Shrink(dest.right);
                 
 
-                //shrink them
-                
+                //Vector2 left = Vector2.zero;
 
-                //make box1 half the size
+                //left = bigBox.transform.position;
+                //left.x = (bigBox.transform.position.x) - (float)(.25*bigBox.size.x);
+                //Vector2 box2 = left;
+                //box2.x += box2.x;
 
                 break;
         }
     }
 
-    IEnumerator Shrink() {
-        //Collider2D col, BoxCollider2D box, float xScale, float yScale CALL THESE ABOVE
-        //while (box.transform.localScale.x > 0) {
-        //    box.transform.localScale = new Vector3(box.transform.localScale.x - (xScale * Time.deltaTime), box.transform.localScale.y - (yScale * Time.deltaTime));
-        //    yield return new WaitForSeconds(Time.fixedDeltaTime);
-        //}
-
-        //col.gameObject.active = false;
-        
-    }
+  
 
     #region PlayerMethods
     /// <summary>
