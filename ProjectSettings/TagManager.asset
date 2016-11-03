@@ -9,6 +9,7 @@ TagManager:
   - KillZ
   - Win
   - Ground
+  - Destructable
   layers:
   - Default
   - TransparentFX

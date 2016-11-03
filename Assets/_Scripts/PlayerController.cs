@@ -175,6 +175,9 @@ public class PlayerController : MonoBehaviour {
                 col.gameObject.SetActive(false);
                 PlayerGrow(food);
                 break;
+            case "Destructable":
+                //TODO split into 2 and shrink
+                break;
         }
     }
 
