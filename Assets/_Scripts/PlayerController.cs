@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour {
 
         updateHealth();
 
+        StartCoroutine(Shrink());
+
         level = SceneManager.sceneCountInBuildSettings;
     }
 	
@@ -177,8 +179,37 @@ public class PlayerController : MonoBehaviour {
                 break;
             case "Destructable":
                 //TODO split into 2 and shrink
+
+                BoxCollider2D bigBox = col.GetComponent<BoxCollider2D>();
+
+                Vector2 left = Vector2.zero;
+
+                left = bigBox.transform.position;
+                left.x = (bigBox.transform.position.x) - (float)(.25*bigBox.size.x);
+                Vector2 box2 = left;
+                box2.x += box2.x;
+
+                //create box collider
+                
+
+                //shrink them
+                
+
+                //make box1 half the size
+
                 break;
         }
+    }
+
+    IEnumerator Shrink() {
+        //Collider2D col, BoxCollider2D box, float xScale, float yScale CALL THESE ABOVE
+        //while (box.transform.localScale.x > 0) {
+        //    box.transform.localScale = new Vector3(box.transform.localScale.x - (xScale * Time.deltaTime), box.transform.localScale.y - (yScale * Time.deltaTime));
+        //    yield return new WaitForSeconds(Time.fixedDeltaTime);
+        //}
+
+        //col.gameObject.active = false;
+        
     }
 
     #region PlayerMethods
