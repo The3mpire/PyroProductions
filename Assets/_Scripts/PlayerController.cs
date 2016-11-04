@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour {
             velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
 
             //jump anim
-            _animator.setAnimation("Jump");
+            _animator.setAnimation("Ball");
 
             jump = false;
         }
@@ -210,11 +210,14 @@ public class PlayerController : MonoBehaviour {
         currHealth -= dmg;
         if(currHealth > 0) {
             updateHealth();
+			_animator
         }
         //turn off the player collider so he doesn't keep dying
         else {
             GetComponent<BoxCollider2D>().enabled = false;
         }
+
+
 
         if(currHealth <= 0) {
             PlayerDeath();
@@ -252,6 +255,8 @@ public class PlayerController : MonoBehaviour {
 
         transform.position = new Vector3(transform.position.x, 
             transform.position.y + (newScale - prevScale.y), 0);
+
+		//TODO update particle size
     }
 
     /// <summary>
@@ -259,7 +264,11 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     private void PlayerDeath() {
         playerControl = false;
-		this.gameObject.SetActive (false);
+		//this.gameObject.SetActive (false);
+
+		_animator.setAnimation ("Death");
+
+		GetComponentInChildren<ParticleSystem>().enableEmission = false;
 
         healthBar.SetActive(false);
         gameOverPanel.SetActive(true);
@@ -277,7 +286,7 @@ public class PlayerController : MonoBehaviour {
     }
 
 	private void PlayerNextLevel(){
-        GameManager.NextLevel(level);
+  //      GameManager.NextLevel(level);
 	}
 
     /// <summary>

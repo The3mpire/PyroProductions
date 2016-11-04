@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    public static GameManager instance = null;
+    public GameManager instance = null;
 
 	// Use this for initialization
 	void Start () {
@@ -30,23 +30,23 @@ public class GameManager : MonoBehaviour {
 	
 	}
 
-    public static void RestartLevel() {
+    public void RestartLevel() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public static void ExitLevel() {
+    public void ExitLevel() {
         SceneManager.LoadScene("MainMenu");
     }
 
-    public static void StartGame() {
+    public void StartGame() {
         SceneManager.LoadScene(1);
     }
 
-	public static void ExitGame() {
+	public void ExitGame() {
         Application.Quit();
     }
 
-	public static void NextLevel(int level){
+	public void NextLevel(int level){
 		//loads the next scene as long as there is one & saves playerPrefs
 		if (SceneManager.GetActiveScene ().buildIndex != level) {
             PlayerPrefs.SetInt("level", SceneManager.GetActiveScene().buildIndex);
