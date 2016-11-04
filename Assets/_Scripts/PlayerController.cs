@@ -210,7 +210,7 @@ public class PlayerController : MonoBehaviour {
         currHealth -= dmg;
         if(currHealth > 0) {
             updateHealth();
-			_animator
+			_animator.setAnimation ("Steam");
         }
         //turn off the player collider so he doesn't keep dying
         else {
