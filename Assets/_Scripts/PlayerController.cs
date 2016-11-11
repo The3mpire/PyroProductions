@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour {
     public float maxScale = 2;
     [Tooltip("The minimum size the player will be")]
     public float minScale = .4f;
+	[Tooltip("The size of the particle based on the player.")]
+	public float particleSize = 1f;
 
 
     private CharacterController2D _controller;
@@ -175,31 +177,24 @@ public class PlayerController : MonoBehaviour {
             case "Growing":
                 col.gameObject.SetActive(false);
                 PlayerGrow(food);
-                break;
-            case "Destructable":
-
-                Destructable dest = col.GetComponentInParent<Destructable>();
-
-                dest.left.enabled = true;
-                dest.right.enabled = true;
-                dest.main.enabled = false;
-
-                dest.Shrink(dest.left);
-                dest.Shrink(dest.right);
-                
-
-                //Vector2 left = Vector2.zero;
-
-                //left = bigBox.transform.position;
-                //left.x = (bigBox.transform.position.x) - (float)(.25*bigBox.size.x);
-                //Vector2 box2 = left;
-                //box2.x += box2.x;
-
-                break;
+	            break;
+			case "Destructable":	
+				col.GetComponentInParent<Destructable> ().Burn();
+				
+				//dest.Burn();
+					
+				break;
         }
     }
 
-  
+	void OnTriggerExit2D(Collider2D col){
+		switch (col.tag) {
+		case "Destructable":
+			col.GetComponentInParent<Destructable> ().Disintegrate();
+			break;
+		}
+	}
+	  
 
     #region PlayerMethods
     /// <summary>
@@ -256,7 +251,8 @@ public class PlayerController : MonoBehaviour {
         transform.position = new Vector3(transform.position.x, 
             transform.position.y + (newScale - prevScale.y), 0);
 
-		//TODO update particle size
+		//update particle size
+		GetComponentInChildren<ParticleSystem>().startSize = transform.localScale.x * particleSize;
     }
 
     /// <summary>
