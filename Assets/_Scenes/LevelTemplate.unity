@@ -2167,6 +2167,52 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010575234924, guid: a52d15380954c6c4ca03ff36002d1255,
     type: 2}
   m_PrefabInternal: {fileID: 444134720}
+--- !u!1001 &1050646860
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000010593585148, guid: 856a8a3a76f4940edb7a337bdb5a6e14, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 12.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010593585148, guid: 856a8a3a76f4940edb7a337bdb5a6e14, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -9.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010593585148, guid: 856a8a3a76f4940edb7a337bdb5a6e14, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010593585148, guid: 856a8a3a76f4940edb7a337bdb5a6e14, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010593585148, guid: 856a8a3a76f4940edb7a337bdb5a6e14, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010593585148, guid: 856a8a3a76f4940edb7a337bdb5a6e14, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010593585148, guid: 856a8a3a76f4940edb7a337bdb5a6e14, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010593585148, guid: 856a8a3a76f4940edb7a337bdb5a6e14, type: 2}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010035554958, guid: 856a8a3a76f4940edb7a337bdb5a6e14, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 856a8a3a76f4940edb7a337bdb5a6e14, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1051125721
 Prefab:
   m_ObjectHideFlags: 0
@@ -2708,7 +2754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3940180e6a393864e915d424ce4ae59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instance: {fileID: 0}
+  playerDead: 0
 --- !u!1001 &1180211433
 Prefab:
   m_ObjectHideFlags: 0

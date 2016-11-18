@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    public GameManager instance = null;
+    public static GameManager instance = null;
+
+	public bool playerDead = false;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +30,14 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public static void SetPlayerDead(bool status){
+		instance.playerDead = status;
+	}
+
+	public static bool GetPlayerDead(){
+		return instance.playerDead;
 	}
 
     public void RestartLevel() {

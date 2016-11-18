@@ -425,6 +425,8 @@ PlayerSettings:
   - iOS::Architecture
   - iOS::EnableIncrementalBuildSupportForIl2cpp
   - iOS::ScriptingBackend
+  - tvOS::Architecture
+  - tvOS::ScriptingBackend
   Android::ScriptingBackend: 0
   Standalone::ScriptingBackend: 0
   WebGL::ScriptingBackend: 1
@@ -435,6 +437,8 @@ PlayerSettings:
   iOS::Architecture: 2
   iOS::EnableIncrementalBuildSupportForIl2cpp: 1
   iOS::ScriptingBackend: 1
+  tvOS::Architecture: 1
+  tvOS::ScriptingBackend: 1
   boolPropertyNames:
   - Android::VR::enable
   - Metro::VR::enable

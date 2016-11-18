@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour {
 	[Tooltip("The size of the particle based on the player.")]
 	public float particleSize = 1f;
 
-
     private CharacterController2D _controller;
-    private AnimationController2D _animator;
+    private Animator _animator;
+	private AnimationController2D animControl;
     //[SerializeField]
     private int currHealth = 0;
     private bool playerControl = true;
@@ -56,7 +56,8 @@ public class PlayerController : MonoBehaviour {
 		healthBar.SetActive(true);
 
         _controller = GetComponent<CharacterController2D>();
-        _animator = GetComponent<AnimationController2D>();
+        _animator = GetComponent<Animator>();
+		animControl = GetComponent<AnimationController2D>();
 
         gameCamera.GetComponent<CameraFollow2D>().startCameraFollow(this.gameObject);
         currHealth = startHealth;
@@ -101,28 +102,30 @@ public class PlayerController : MonoBehaviour {
         */
 
         if (facing == Direction.left) {
-            velocity.x = -1 * walkSpeed;
+			velocity.x = -1 * walkSpeed;
             if (_controller.isGrounded) {
-                _animator.setAnimation("Run");
+				_animator.SetBool("isGrounded", true);
+				_animator.SetBool ("isMoving", true);
             }
-            _animator.setFacing("Left");
+			animControl.setFacing("Left");
         }
         else if (facing == Direction.right) {
             velocity.x = walkSpeed;
             if (_controller.isGrounded) {
-                _animator.setAnimation("Run");
+				_animator.SetBool("isGrounded", true);
+				_animator.SetBool ("isMoving", true);
             }
-            _animator.setFacing("Right");
+			animControl.setFacing("Right");
         }
         else {
-            _animator.setAnimation("Idle");
+			_animator.SetBool("isMoving", false);
         }
 
         if (jump) {
             velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
 
             //jump anim
-            _animator.setAnimation("Ball");
+            _animator.SetBool("isGrounded", false);
 
             jump = false;
         }
@@ -132,6 +135,9 @@ public class PlayerController : MonoBehaviour {
             _controller.move(velocity * Time.deltaTime);
         }
 
+		if (_controller.isGrounded) {
+			_animator.SetBool ("isGrounded", true);
+		}
 
     }
 		
@@ -163,7 +169,7 @@ public class PlayerController : MonoBehaviour {
 
         switch (col.tag) {
             case "KillZ":
-                PlayerFallDeath();
+                PlayerDeath();
                 break;
             case "Damaging":
                 PlayerDamage(damage);
@@ -205,7 +211,8 @@ public class PlayerController : MonoBehaviour {
         currHealth -= dmg;
         if(currHealth > 0) {
             updateHealth();
-			_animator.setAnimation ("Steam");
+			//TODO instantiate steam game object (object pool)
+			//_animator.setAnimation ("Steam");
         }
         //turn off the player collider so he doesn't keep dying
         else {
@@ -262,23 +269,15 @@ public class PlayerController : MonoBehaviour {
         playerControl = false;
 		//this.gameObject.SetActive (false);
 
-		_animator.setAnimation ("Death");
+		_animator.SetBool("isDead", true);
 
 		GetComponentInChildren<ParticleSystem>().enableEmission = false;
 
+		GameManager.SetPlayerDead (true);
+
         healthBar.SetActive(false);
         gameOverPanel.SetActive(true);
-    }
-
-    /// <summary>
-    /// Kill the player through falling off the map
-    /// </summary>
-    private void PlayerFallDeath() {
-        currHealth = 0;
-        healthBar.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 32);
-        gameOverPanel.SetActive(true);
-
-        gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
+		gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
     }
 
 	private void PlayerNextLevel(){
