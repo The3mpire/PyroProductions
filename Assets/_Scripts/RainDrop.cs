@@ -6,6 +6,8 @@ public class RainDrop : MonoBehaviour {
 	[Tooltip("At what 'y' the raindrop will despawn")]
 	public float despawn = -7;
 
+    public GameObject steam;
+
 	private Vector3 startPos = Vector3.zero;
 
 	// Use this for initialization
@@ -30,6 +32,7 @@ public class RainDrop : MonoBehaviour {
 				break;
 			case "Player":
 				gameObject.SetActive (false);
+                Destroy(Instantiate(steam, gameObject.transform.position, new Quaternion()), (5f/12f));
 				//TODO trigger steam animation
 				break;
 		}
