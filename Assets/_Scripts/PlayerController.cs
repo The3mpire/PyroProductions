@@ -185,10 +185,7 @@ public class PlayerController : MonoBehaviour {
                 PlayerGrow(food);
 	            break;
 			case "Destructable":	
-				col.GetComponentInParent<Destructable> ().Burn();
-				
-				//dest.Burn();
-					
+				col.GetComponentInParent<Destructable>().Burn();					
 				break;
         }
     }
@@ -196,7 +193,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D col){
 		switch (col.tag) {
 		case "Destructable":
-			col.GetComponentInParent<Destructable> ().Disintegrate();
+			col.GetComponentInParent<Destructable>().Disintegrate();
 			break;
 		}
 	}
@@ -211,8 +208,6 @@ public class PlayerController : MonoBehaviour {
         currHealth -= dmg;
         if(currHealth > 0) {
             updateHealth();
-			//TODO instantiate steam game object (object pool)
-			//_animator.setAnimation ("Steam");
         }
         //turn off the player collider so he doesn't keep dying
         else {

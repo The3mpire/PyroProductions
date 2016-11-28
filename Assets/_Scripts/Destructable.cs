@@ -14,14 +14,15 @@ public class Destructable : MonoBehaviour {
 	}
 
 	public void Burn(){
-		//TODO call burn
-		Debug.Log("in burn");
-	}
+
+        GetComponent<Animator>().SetBool("hasEntered", true);
+
+    }
 
 	public void Disintegrate(){
-		//TODO animate ash
-		Debug.Log("in disinte");
+        //TODO animate ash
+        GetComponent<Animator>().SetBool("hasEntered", false);
 
-		gameObject.SetActive (false);
+        gameObject.SetActive (false);
 	}
 }

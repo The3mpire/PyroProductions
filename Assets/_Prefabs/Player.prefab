@@ -221,6 +221,7 @@ MonoBehaviour:
   food: 4
   maxScale: 2
   minScale: 0.5
+  particleSize: 1
 --- !u!114 &114000013510112206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,7 +321,7 @@ ParticleSystem:
   moveWithTransform: 0
   autoRandomSeed: 1
   scalingMode: 2
-  randomSeed: -1848159132
+  randomSeed: 531077577
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -466,7 +467,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.5
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1962,7 +1963,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 2
   m_MinParticleSize: 0
