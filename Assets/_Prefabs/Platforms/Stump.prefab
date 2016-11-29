@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000013467040750}
   - 68: {fileID: 68000013425884670}
   m_Layer: 8
-  m_Name: OvertheFlagpole
+  m_Name: Stump
   m_TagString: Win
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
