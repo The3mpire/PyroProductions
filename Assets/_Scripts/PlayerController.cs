@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour {
                 break;
             case "Win":
                 // TODO change to win condition & save points
-                PlayerWin();
+                PlayerNextLevel();
                 break;
             case "Growing":
                 col.gameObject.SetActive(false);
@@ -274,14 +274,14 @@ public class PlayerController : MonoBehaviour {
     }
 
 	private void PlayerNextLevel(){
-  //      GameManager.NextLevel(level);
-	}
+        GameManager.instance.NextLevel(); 
+    }
 
     /// <summary>
     /// Stop time and tell the player they won
     /// </summary>
     public void PlayerWin() {
-
+        //TODO have a last panel?
         winText.SetActive(true);
         Time.timeScale = 0;
     }

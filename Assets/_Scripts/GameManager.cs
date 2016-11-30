@@ -56,16 +56,13 @@ public class GameManager : MonoBehaviour {
         Application.Quit();
     }
 
-	public void NextLevel(int level){
+	public void NextLevel(){
 		//loads the next scene as long as there is one & saves playerPrefs
-		if (SceneManager.GetActiveScene ().buildIndex != level) {
+		//if (SceneManager.GetActiveScene ().buildIndex != level) {
             PlayerPrefs.SetInt("level", SceneManager.GetActiveScene().buildIndex);
-            //TODO put some type of loading thing to display
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-		}
-		//TODO otherwise call playerwin
-		else {
-			
-		}
-	}
+        //TODO put some type of loading thing to display
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+
+        //}
+    }
 }
