@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Destructable : MonoBehaviour {
+
+   // public AnimationClip destructAnim;
 	// Use this for initialization
 	void Start () {
 
@@ -14,15 +16,19 @@ public class Destructable : MonoBehaviour {
 	}
 
 	public void Burn(){
-
         GetComponent<Animator>().SetBool("hasEntered", true);
-
     }
 
 	public void Disintegrate(){
-        //TODO animate ash
         GetComponent<Animator>().SetBool("hasEntered", false);
-
-        gameObject.SetActive (false);
+        
+        StartCoroutine(ashAnim(GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length));
 	}
+
+    private IEnumerator ashAnim(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        gameObject.SetActive(false);
+    }
 }

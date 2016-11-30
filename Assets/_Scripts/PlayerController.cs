@@ -175,10 +175,8 @@ public class PlayerController : MonoBehaviour {
                 PlayerDamage(damage);
                 break;
             case "Win":
-                // change to win condition
-                //if (currHealth >= maxHealth) {
-                    PlayerWin();
-                //}
+                // TODO change to win condition & save points
+                PlayerWin();
                 break;
             case "Growing":
                 col.gameObject.SetActive(false);

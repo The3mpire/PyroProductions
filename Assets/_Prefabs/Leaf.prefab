@@ -38,6 +38,7 @@ GameObject:
   - 212: {fileID: 212000012814850950}
   - 61: {fileID: 61000011784607852}
   - 114: {fileID: 114000013533817844}
+  - 95: {fileID: 95000010277785054}
   m_Layer: 8
   m_Name: Leaf
   m_TagString: Destructable
@@ -100,6 +101,23 @@ BoxCollider2D:
   m_Offset: {x: 0.061720848, y: 0.09539223}
   serializedVersion: 2
   m_Size: {x: 1.4462395, y: 0.12579203}
+--- !u!95 &95000010277785054
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012301673898}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6aec7836e3ca4a94fa389d0f528d4c1e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000013533817844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,9 +156,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1587549343
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 689d7c3d1bc098a408d0822bb2fedce3, type: 3}
-  m_Color: {r: 0.85294116, g: 0.4578287, b: 0.109, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
