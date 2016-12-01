@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ce74c2a95023a6047995f4078f3c2a5e
-timeCreated: 1480482851
+timeCreated: 1480562178
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -67,8 +67,8 @@ TextureImporter:
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -80,8 +80,8 @@ TextureImporter:
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -93,8 +93,8 @@ TextureImporter:
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -106,8 +106,8 @@ TextureImporter:
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -119,8 +119,8 @@ TextureImporter:
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -132,8 +132,8 @@ TextureImporter:
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -141,12 +141,12 @@ TextureImporter:
       name: LeafAshSpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 1536
+        x: 1535
         y: 0
         width: 256
         height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

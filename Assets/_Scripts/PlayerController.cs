@@ -3,6 +3,7 @@ using System.Collections;
 using Prime31;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 [RequireComponent(typeof(CharacterController2D), typeof(AnimationController2D))]
 public class PlayerController : MonoBehaviour {
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject gameOverPanel;
     public GameObject winText;
 	public GameObject pausePanel;
+
+    public AudioClip jumpSound;
 
     public float walkSpeed = 3;
     public float jumpHeight = 2;
@@ -34,6 +37,8 @@ public class PlayerController : MonoBehaviour {
     public float minScale = .4f;
 	[Tooltip("The size of the particle based on the player.")]
 	public float particleSize = 1f;
+    [Tooltip("How long the player is invincible after taking damage")]
+    public float invincibilityTime = .2f;
 
     private CharacterController2D _controller;
     private Animator _animator;
@@ -43,6 +48,7 @@ public class PlayerController : MonoBehaviour {
     private bool playerControl = true;
     private bool jump = false;
 	private bool menu = false;
+    private bool damageable = true;
 
     private int level;
 
@@ -79,7 +85,6 @@ public class PlayerController : MonoBehaviour {
 			Time.timeScale = 1;
 		}
 
-
         // is player dead
         if (playerControl) {
             playerInput();
@@ -88,18 +93,6 @@ public class PlayerController : MonoBehaviour {
         Vector3 velocity = _controller.velocity;
 
         velocity.x = 0;
-
-        /*
-        //platform
-        if (_controller.ground != null && _controller.ground.tag == "MovingPlatform") {
-            this.transform.parent = _controller.ground.transform;
-        }
-        else {
-            if (this.transform.parent != null) {
-                this.transform.parent = null;
-            }
-        }
-        */
 
         if (facing == Direction.left) {
 			velocity.x = -1 * walkSpeed;
@@ -126,6 +119,7 @@ public class PlayerController : MonoBehaviour {
 
             //jump anim
             _animator.SetBool("isGrounded", false);
+            SoundManager.instance.PlaySingle(jumpSound);
 
             jump = false;
         }
@@ -172,10 +166,14 @@ public class PlayerController : MonoBehaviour {
                 PlayerDeath();
                 break;
             case "Damaging":
-                PlayerDamage(damage);
+                if (damageable) {
+                    PlayerDamage(damage);
+                    damageable = false;
+                    StartCoroutine(DamageCoolDown(invincibilityTime));
+                }
                 break;
             case "Win":
-                // TODO change to win condition & save points
+                // TODO change to win condition & save 
                 PlayerNextLevel();
                 break;
             case "Growing":
@@ -188,7 +186,16 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-	void OnTriggerExit2D(Collider2D col){
+    private IEnumerator DamageCoolDown(float time) {
+        yield return new WaitForSeconds(time);
+        damageable = true;
+    }
+
+    void OnTriggerStay2D(Collider2D col) {
+        OnTriggerEnter2D(col);
+    }
+
+    void OnTriggerExit2D(Collider2D col){
 		switch (col.tag) {
 		case "Destructable":
 			col.GetComponentInParent<Destructable>().Disintegrate();

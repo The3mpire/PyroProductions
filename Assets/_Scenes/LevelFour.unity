@@ -1775,7 +1775,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011161817448, guid: 6a54c334bcf847245b9b2c0bb36a79f3, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4000012778760576, guid: 6a54c334bcf847245b9b2c0bb36a79f3, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3718,7 +3718,7 @@ Prefab:
     - target: {fileID: 224000011957573244, guid: 492cd8237ff4942cf855f6250b39a79d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224000011957573244, guid: 492cd8237ff4942cf855f6250b39a79d,
         type: 2}
@@ -3793,7 +3793,7 @@ Prefab:
     - target: {fileID: 224000013368441890, guid: 492cd8237ff4942cf855f6250b39a79d,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224000010365402566, guid: 492cd8237ff4942cf855f6250b39a79d,
         type: 2}
@@ -3842,6 +3842,11 @@ Prefab:
     - target: {fileID: 1000011551365958, guid: 492cd8237ff4942cf855f6250b39a79d, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012598586626, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 492cd8237ff4942cf855f6250b39a79d, type: 2}
@@ -4087,7 +4092,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012051534768, guid: 975e0bfd04aeb40088508c31a348ea21, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114000013150495880, guid: 975e0bfd04aeb40088508c31a348ea21,
         type: 2}
@@ -5080,7 +5085,7 @@ Transform:
   m_Children:
   - {fileID: 1800865664}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1001 &1880794920
 Prefab:
   m_ObjectHideFlags: 0
@@ -5770,6 +5775,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d0a7876eb4fee74283d3598548adebe, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &2111101394
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000013422672910, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 21.990805
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013422672910, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 16.94395
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013422672910, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013422672910, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013422672910, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013422672910, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013422672910, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013422672910, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2130960198 stripped
 Transform:
