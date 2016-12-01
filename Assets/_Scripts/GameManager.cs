@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void RestartGame(){
+        SceneManager.LoadScene("LevelOne");
+    }
+
     public void ExitLevel() {
         SceneManager.LoadScene("MainMenu");
     }
@@ -61,6 +65,11 @@ public class GameManager : MonoBehaviour {
         PlayerPrefs.SetInt("level", SceneManager.GetActiveScene().buildIndex);
         //TODO put some type of loading thing to display
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+
+        instance.NextLevel();
+
+        Time.timeScale = 1;
+
 
     }
 }

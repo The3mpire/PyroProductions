@@ -210,7 +210,9 @@ MonoBehaviour:
   gameCamera: {fileID: 0}
   healthBar: {fileID: 0}
   gameOverPanel: {fileID: 0}
-  winText: {fileID: 0}
+  winPanel: {fileID: 1000010278645048, guid: 492cd8237ff4942cf855f6250b39a79d, type: 2}
+  continuePanel: {fileID: 1000010587153094, guid: 492cd8237ff4942cf855f6250b39a79d,
+    type: 2}
   pausePanel: {fileID: 0}
   jumpSound: {fileID: 8300000, guid: 88bb997f7698edd408561272314e1b95, type: 3}
   steamSound: {fileID: 8300000, guid: 72c33614228b892409e812a80896aa93, type: 3}

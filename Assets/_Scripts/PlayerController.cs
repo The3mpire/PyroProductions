@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject gameCamera;
     public GameObject healthBar;
     public GameObject gameOverPanel;
-    public GameObject winText;
+    public GameObject winPanel;
+    public GameObject continuePanel;
 	public GameObject pausePanel;
 
     public AudioClip jumpSound;
@@ -280,7 +281,8 @@ public class PlayerController : MonoBehaviour {
     }
 
 	private void PlayerNextLevel(){
-        GameManager.instance.NextLevel(); 
+        continuePanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     /// <summary>
@@ -288,7 +290,7 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     public void PlayerWin() {
         //TODO have a last panel?
-        winText.SetActive(true);
+        winPanel.SetActive(true);
         Time.timeScale = 0;
     }
 #endregion
