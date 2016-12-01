@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000013186348412}
   - 61: {fileID: 61000011131457434}
   m_Layer: 10
-  m_Name: winCondition
+  m_Name: NextLevel
   m_TagString: Win
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

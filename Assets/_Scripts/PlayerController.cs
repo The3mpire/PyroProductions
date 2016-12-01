@@ -19,10 +19,11 @@ public class PlayerController : MonoBehaviour {
 	public GameObject pausePanel;
 
     public AudioClip jumpSound;
+	public AudioClip steamSound;
 
-    public float walkSpeed = 3;
-    public float jumpHeight = 2;
-    public float gravity = -35;
+    public float walkSpeed = 3f;
+    public float jumpHeight = 2f;
+    public float gravity = -35f;
     [Tooltip("Player's maximum health")]
     public int maxHealth = 100;
     [Tooltip("Player's starting health")]
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour {
 
             //jump anim
             _animator.SetBool("isGrounded", false);
-            SoundManager.instance.PlaySingle(jumpSound);
+           //TODO SoundManager.instance.PlaySingle(jumpSound);
 
             jump = false;
         }
@@ -172,9 +173,11 @@ public class PlayerController : MonoBehaviour {
                     StartCoroutine(DamageCoolDown(invincibilityTime));
                 }
                 break;
+			case "NextLevel":
+				PlayerNextLevel ();
+				break;
             case "Win":
-                // TODO change to win condition & save 
-                PlayerNextLevel();
+                PlayerWin();
                 break;
             case "Growing":
                 col.gameObject.SetActive(false);
@@ -211,18 +214,14 @@ public class PlayerController : MonoBehaviour {
     /// <param name="dmg"></param>
     private void PlayerDamage(int dmg) {
         currHealth -= dmg;
+		SoundManager.instance.PlaySingle(steamSound);
         if(currHealth > 0) {
             updateHealth();
         }
         //turn off the player collider so he doesn't keep dying
         else {
             GetComponent<BoxCollider2D>().enabled = false;
-        }
-
-
-
-        if(currHealth <= 0) {
-            PlayerDeath();
+			PlayerDeath();
         }
     }
     

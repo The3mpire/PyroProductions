@@ -213,6 +213,7 @@ MonoBehaviour:
   winText: {fileID: 0}
   pausePanel: {fileID: 0}
   jumpSound: {fileID: 8300000, guid: 88bb997f7698edd408561272314e1b95, type: 3}
+  steamSound: {fileID: 8300000, guid: 72c33614228b892409e812a80896aa93, type: 3}
   walkSpeed: 4.5
   jumpHeight: 4
   gravity: -35
@@ -223,6 +224,7 @@ MonoBehaviour:
   maxScale: 1.6
   minScale: 0.5
   particleSize: 1
+  invincibilityTime: 0.2
 --- !u!114 &114000013510112206
 MonoBehaviour:
   m_ObjectHideFlags: 1

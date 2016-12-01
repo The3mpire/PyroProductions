@@ -58,11 +58,9 @@ public class GameManager : MonoBehaviour {
 
 	public void NextLevel(){
 		//loads the next scene as long as there is one & saves playerPrefs
-		//if (SceneManager.GetActiveScene ().buildIndex != level) {
-            PlayerPrefs.SetInt("level", SceneManager.GetActiveScene().buildIndex);
+        PlayerPrefs.SetInt("level", SceneManager.GetActiveScene().buildIndex);
         //TODO put some type of loading thing to display
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
 
-        //}
     }
 }

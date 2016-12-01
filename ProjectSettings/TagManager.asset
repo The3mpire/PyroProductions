@@ -10,6 +10,8 @@ TagManager:
   - Win
   - Ground
   - Destructable
+  - Fire
+  - NextLevel
   layers:
   - Default
   - TransparentFX
