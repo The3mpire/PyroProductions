@@ -141,7 +141,7 @@ Prefab:
     - target: {fileID: 212000011065584608, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac,
         type: 2}
       propertyPath: m_SortingLayerID
-      value: -1796184419
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212000011065584608, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac,
         type: 2}
@@ -151,6 +151,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &62560626 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010587153094, guid: 492cd8237ff4942cf855f6250b39a79d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1479034098}
 --- !u!1 &120197793
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,11 +790,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010073159724, guid: 6d0a7876eb4fee74283d3598548adebe,
     type: 2}
   m_PrefabInternal: {fileID: 1906181769}
---- !u!1 &482167283 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000012283948394, guid: 492cd8237ff4942cf855f6250b39a79d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1479034098}
 --- !u!4 &492094421 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011010351470, guid: fac831f2b1281de41bac933d59e638ea,
@@ -1060,7 +1060,7 @@ Prefab:
         type: 2}
       propertyPath: pausePanel
       value: 
-      objectReference: {fileID: 482167283}
+      objectReference: {fileID: 1479034099}
     - target: {fileID: 114000013170367108, guid: 5f36c682b05b24f6383b418a50b183f8,
         type: 2}
       propertyPath: walkSpeed
@@ -1081,6 +1081,11 @@ Prefab:
       propertyPath: food
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013170367108, guid: 5f36c682b05b24f6383b418a50b183f8,
+        type: 2}
+      propertyPath: continuePanel
+      value: 
+      objectReference: {fileID: 62560626}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f36c682b05b24f6383b418a50b183f8, type: 2}
   m_IsPrefabParent: 0
@@ -1560,7 +1565,7 @@ Prefab:
     - target: {fileID: 212000011065584608, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac,
         type: 2}
       propertyPath: m_SortingLayerID
-      value: -1796184419
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212000011065584608, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac,
         type: 2}
@@ -2331,9 +2336,68 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1160517779}
+    - target: {fileID: 1000010587153094, guid: 492cd8237ff4942cf855f6250b39a79d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013801340798, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1160517779}
+    - target: {fileID: 114000013801340798, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012718440548, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1160517779}
+    - target: {fileID: 114000012718440548, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011202635802, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1160517779}
+    - target: {fileID: 114000011202635802, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013866214760, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1160517779}
+    - target: {fileID: 114000013866214760, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011406337450, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1160517779}
+    - target: {fileID: 114000011406337450, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 492cd8237ff4942cf855f6250b39a79d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1479034099 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011827208812, guid: 492cd8237ff4942cf855f6250b39a79d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1479034098}
 --- !u!1001 &1506969036
 Prefab:
   m_ObjectHideFlags: 0
@@ -2376,6 +2440,11 @@ Prefab:
     - target: {fileID: 1000010469964042, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac, type: 2}
       propertyPath: m_Name
       value: Block_8x8 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011065584608, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac, type: 2}
@@ -2753,7 +2822,7 @@ Prefab:
     - target: {fileID: 212000011065584608, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac,
         type: 2}
       propertyPath: m_SortingLayerID
-      value: -1796184419
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212000011065584608, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac,
         type: 2}

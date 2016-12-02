@@ -214,7 +214,7 @@ MonoBehaviour:
   continuePanel: {fileID: 1000010587153094, guid: 492cd8237ff4942cf855f6250b39a79d,
     type: 2}
   pausePanel: {fileID: 0}
-  jumpSound: {fileID: 8300000, guid: 88bb997f7698edd408561272314e1b95, type: 3}
+  jumpSound: {fileID: 8300000, guid: 56034442909e34d5d8333b5d241cb643, type: 3}
   steamSound: {fileID: 8300000, guid: 72c33614228b892409e812a80896aa93, type: 3}
   walkSpeed: 4.5
   jumpHeight: 4

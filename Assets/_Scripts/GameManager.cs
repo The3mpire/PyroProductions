@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
         // Here we save our singleton instance
         instance = this;
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 	
 	// Update is called once per frame
@@ -66,10 +66,6 @@ public class GameManager : MonoBehaviour {
         //TODO put some type of loading thing to display
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
 
-        instance.NextLevel();
-
         Time.timeScale = 1;
-
-
     }
 }

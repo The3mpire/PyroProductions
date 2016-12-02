@@ -26,22 +26,29 @@ public class Destructable : MonoBehaviour {
 
 	public void Disintegrate(){
         GetComponent<Animator>().SetBool("hasEntered", false);
-
+		StopAllCoroutines ();
         StartCoroutine(ashAnim(GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length));
-		StartCoroutine (LeafCooldown (leafRespawn));
 	}
 
     private IEnumerator ashAnim(float time)
     {
+		GetComponent<Collider2D> ().enabled = false;
+		GetComponentInChildren<Collider2D> ().enabled = false;
+
         yield return new WaitForSeconds(time);
 
-        gameObject.SetActive(false);
+		GetComponent<SpriteRenderer> ().enabled = false;
+		GetComponent<Animator> ().SetTrigger ("reset");
+		StartCoroutine (LeafCooldown (leafRespawn));
     }
 
 	private IEnumerator LeafCooldown(float time){
 		yield return new WaitForSeconds(time);
 
 		//TODO reset the object (use prefabs?)
-		gameObject.SetActive(true);
+		GetComponent<SpriteRenderer> ().enabled = true;
+		GetComponent<Collider2D> ().enabled = true;
+		GetComponentInChildren<Collider2D> ().enabled = true;
+
 	}
 }

@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour {
 
             //jump anim
             _animator.SetBool("isGrounded", false);
-           //TODO SoundManager.instance.PlaySingle(jumpSound);
+            SoundManager.instance.PlaySingle(jumpSound);
 
             jump = false;
         }
@@ -196,7 +196,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     void OnTriggerStay2D(Collider2D col) {
-        OnTriggerEnter2D(col);
+		switch (col.tag) {
+		case "Damaging":
+			if (damageable) {
+				PlayerDamage(damage);
+				damageable = false;
+				StartCoroutine(DamageCoolDown(invincibilityTime));
+			}
+			break;
+		}
     }
 
     void OnTriggerExit2D(Collider2D col){
