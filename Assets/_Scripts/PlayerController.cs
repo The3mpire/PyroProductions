@@ -4,6 +4,7 @@ using Prime31;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEditor;
 
 [RequireComponent(typeof(CharacterController2D), typeof(AnimationController2D))]
 public class PlayerController : MonoBehaviour {
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour {
 
     public AudioClip jumpSound;
 	public AudioClip steamSound;
+    [Tooltip("How loud the steam sound plays")]
+    public float steamVolume = .1f;
+
 
     public float walkSpeed = 3f;
     public float jumpHeight = 2f;
@@ -36,11 +40,13 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("The maximum size the player will be")]
     public float maxScale = 2;
     [Tooltip("The minimum size the player will be")]
-    public float minScale = .4f;
+    public float minScale = 0.4f;
 	[Tooltip("The size of the particle based on the player.")]
 	public float particleSize = 1f;
     [Tooltip("How long the player is invincible after taking damage")]
-    public float invincibilityTime = .2f;
+    public float invincibilityTime = 0.2f;
+    [Tooltip("The base size of explode")]
+    public float explodeRadius = 3f;
 
     private CharacterController2D _controller;
     private Animator _animator;
@@ -51,6 +57,7 @@ public class PlayerController : MonoBehaviour {
     private bool jump = false;
 	private bool menu = false;
     private bool damageable = true;
+    private bool canExplode = true;
 
     private int level;
 
@@ -77,20 +84,20 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape) && !menu) {
+        
+		if (Input.GetButtonDown("Cancel") && !menu) {
 			pausePanel.SetActive (true);
 			menu = true;
 			Time.timeScale = 0;
-		} else if (Input.GetKeyDown (KeyCode.Escape) && menu) {
+		} else if (Input.GetButtonDown("Cancel") && menu) {
 			pausePanel.SetActive (false);
 			menu = false;
 			Time.timeScale = 1;
-		}
+		}   
 
         // is player dead
         if (playerControl) {
             playerInput();
-
         }
         Vector3 velocity = _controller.velocity;
 
@@ -154,15 +161,29 @@ public class PlayerController : MonoBehaviour {
             //play idle animation
             facing = Direction.idle;
         }
-
+        //jump
         if (Input.GetAxis("Jump") > 0 && _controller.isGrounded) {
             jump = true;
         }
+        //explode
+        else if (Input.GetButtonDown("Explode") && canExplode && _controller.isGrounded) {
+            PlayerExplode();
+            canExplode = false;
+            damageable = false;
+            playerControl = false;
+            StartCoroutine(ExplodeCooldowns(_animator.GetCurrentAnimatorClipInfo(0).Length));
+        }
+    }
+
+    private IEnumerator ExplodeCooldowns(float time) {
+        yield return new WaitForSeconds(time);
+        canExplode = true;
+        damageable = true;
+        playerControl = true;
     }
 
 
    void OnTriggerEnter2D(Collider2D col) {
-
         switch (col.tag) {
             case "KillZ":
                 PlayerDeath();
@@ -223,7 +244,7 @@ public class PlayerController : MonoBehaviour {
     /// <param name="dmg"></param>
     private void PlayerDamage(int dmg) {
         currHealth -= dmg;
-		SoundManager.instance.PlaySingle(steamSound);
+		SoundManager.instance.PlaySingle(steamSound, steamVolume);
         if(currHealth > 0) {
             updateHealth();
         }
@@ -231,6 +252,24 @@ public class PlayerController : MonoBehaviour {
         else {
             GetComponent<BoxCollider2D>().enabled = false;
 			PlayerDeath();
+        }
+    }
+
+    //void OnDrawGizmos() {
+    //    Gizmos.DrawSphere(transform.position, explodeRadius * transform.localScale.x);
+    //}
+
+    private void PlayerExplode() {
+        // create the circle
+        Collider2D[] destructables = Physics2D.OverlapCircleAll(transform.position, explodeRadius * transform.localScale.x, -LayerMask.NameToLayer("Platform"));
+        foreach(Collider2D col in destructables) {
+            if(col.tag == "Destructable") {
+                Destructable d = col.GetComponent<Destructable>();
+                // if it is actually a Destructable
+                if (d) {
+                    StartCoroutine(d.BurnThenDisintegrate());
+                }
+            }
         }
     }
     

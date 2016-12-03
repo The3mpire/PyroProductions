@@ -1,15 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour {
     public AudioSource fxSource;                   //Drag a reference to the audio source which will play the sound effects.
     public AudioSource musicSource;                 //Drag a reference to the audio source which will play the music.
+    public AudioClip menuSong;
+    public AudioClip gameSong;
     public static SoundManager instance = null;     //Allows other scripts to call functions from SoundManager.             
     public float lowPitchRange = .95f;              //The lowest a sound effect will be randomly pitched.
     public float highPitchRange = 1.05f;            //The highest a sound effect will be randomly pitched.
 
 
     void Awake() {
+        //TODO play 2 different songs
         //Check if there is already an instance of SoundManager
         if (instance == null)
             //if not, set it to this.
@@ -19,17 +23,41 @@ public class SoundManager : MonoBehaviour {
             //Destroy this, this enforces our singleton pattern so there can only be one instance of SoundManager.
             Destroy(gameObject);
 
+
         //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
         DontDestroyOnLoad(gameObject);
     }
 
-
-    //Used to play single sound clips.
-    public void PlaySingle(AudioClip clip) {
-		fxSource.PlayOneShot(clip);
+    void Start() {
+        if (instance.musicSource.clip != gameSong && instance.musicSource.clip != null) {
+            instance.musicSource.clip = gameSong;
+        }
+        else {
+            instance.musicSource.clip = menuSong;
+        }
+        instance.musicSource.Play();
     }
 
+    void OnLevelWasLoaded() {
+        if (SceneManager.GetActiveScene().name == "MainMenu") {
+            if(instance.musicSource.clip != menuSong) {
+                instance.musicSource.clip = menuSong;
+                instance.musicSource.Play();
+            }
+        }
+        else{
+            if (instance.musicSource.clip != gameSong) {
+                instance.musicSource.clip = gameSong;
+                instance.musicSource.Play();
+            }
+        }
+    }
 
+    //Used to play single sound clips.
+    public void PlaySingle(AudioClip clip, float volume = 1f) {
+		fxSource.PlayOneShot(clip, volume);
+    }
+    
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
     public void RandomizeSfx(params AudioClip[] clips) {
         //Generate a random number between 0 and the length of our array of clips passed in.

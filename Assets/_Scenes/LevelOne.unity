@@ -534,6 +534,11 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 607696305}
+    - target: {fileID: 20000011926150310, guid: 1bd63322ffeb30244a208c69fd2bc11d,
+        type: 2}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bd63322ffeb30244a208c69fd2bc11d, type: 2}
   m_IsPrefabParent: 0
@@ -1018,6 +1023,11 @@ Prefab:
     - target: {fileID: 4000013422672910, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000010299407506, guid: 3d4d8e534ea3936479f3b0ee85d78521,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d4d8e534ea3936479f3b0ee85d78521, type: 2}

@@ -4,6 +4,7 @@ using System.Collections;
 public class Destructable : MonoBehaviour {
 
 	public AudioClip burnSound;
+    public float burnLength = 0.3f;
 
 	[Tooltip("How long the leaf will take to respawn")]	
 	public float leafRespawn = 1f;
@@ -51,4 +52,10 @@ public class Destructable : MonoBehaviour {
 		GetComponentInChildren<Collider2D> ().enabled = true;
 
 	}
+
+    public IEnumerator BurnThenDisintegrate() {
+        Burn();
+        yield return new WaitForSeconds(burnLength);
+        Disintegrate();
+    }
 }
