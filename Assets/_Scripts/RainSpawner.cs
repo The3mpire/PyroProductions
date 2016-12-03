@@ -10,6 +10,8 @@ public class RainSpawner : MonoBehaviour {
     [Tooltip("How fast the drops will spawn(in seconds)")]
     public float spawnRate = .3f;
 
+    public bool isSpawning = true;
+
     public GameObject rainDrop;
 
     private float height;
@@ -37,7 +39,7 @@ public class RainSpawner : MonoBehaviour {
 
     void spawnDrops() {
         foreach (GameObject drop in rainDrops) {
-            if (!drop.activeSelf) {
+            if (!drop.activeSelf && isSpawning) {
                 drop.transform.position = gameObject.transform.position;
                 drop.SetActive(true);
                 return;

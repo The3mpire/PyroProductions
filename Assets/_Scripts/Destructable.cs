@@ -23,6 +23,10 @@ public class Destructable : MonoBehaviour {
 	public void Burn(){
         GetComponent<Animator>().SetBool("hasEntered", true);
 		SoundManager.instance.PlaySingle(burnSound);
+      
+        //TODO isSpawning??
+        GetComponentInChildren<RainSpawner>().gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        GetComponentInChildren<RainSpawner>().gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
 	public void Disintegrate(){
@@ -45,13 +49,14 @@ public class Destructable : MonoBehaviour {
 
 	private IEnumerator LeafCooldown(float time){
 		yield return new WaitForSeconds(time);
-
-		//TODO reset the object (use prefabs?)
+        
 		GetComponent<SpriteRenderer> ().enabled = true;
 		GetComponent<Collider2D> ().enabled = true;
 		GetComponentInChildren<Collider2D> ().enabled = true;
+        GetComponentInChildren<RainSpawner>().gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        GetComponentInChildren<RainSpawner>().gameObject.GetComponent<Collider2D>().enabled = true;
 
-	}
+    }
 
     public IEnumerator BurnThenDisintegrate() {
         Burn();
