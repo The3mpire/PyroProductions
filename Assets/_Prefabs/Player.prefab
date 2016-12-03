@@ -75,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013880302602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -0.36, z: 0}
+  m_LocalPosition: {x: 0.04, y: 1.64, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -216,6 +216,7 @@ MonoBehaviour:
   pausePanel: {fileID: 0}
   jumpSound: {fileID: 8300000, guid: 56034442909e34d5d8333b5d241cb643, type: 3}
   steamSound: {fileID: 8300000, guid: 72c33614228b892409e812a80896aa93, type: 3}
+  steamVolume: 0.1
   walkSpeed: 4.5
   jumpHeight: 4
   gravity: -35
@@ -227,6 +228,8 @@ MonoBehaviour:
   minScale: 0.5
   particleSize: 1
   invincibilityTime: 0.2
+  explodeRadius: 3
+  explodeDamage: 10
 --- !u!114 &114000013510112206
 MonoBehaviour:
   m_ObjectHideFlags: 1

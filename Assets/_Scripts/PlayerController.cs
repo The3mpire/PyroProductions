@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour {
     public float invincibilityTime = 0.2f;
     [Tooltip("The base size of explode")]
     public float explodeRadius = 3f;
+    [Tooltip("How much damage exploding does to the player")]
+    public int explodeDamage = 15;
 
     private CharacterController2D _controller;
     private Animator _animator;
@@ -261,6 +263,7 @@ public class PlayerController : MonoBehaviour {
 
     private void PlayerExplode() {
         // create the circle
+        PlayerDamage(explodeDamage);
         Collider2D[] destructables = Physics2D.OverlapCircleAll(transform.position, explodeRadius * transform.localScale.x, -LayerMask.NameToLayer("Platform"));
         foreach(Collider2D col in destructables) {
             if(col.tag == "Destructable") {
