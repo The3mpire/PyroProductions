@@ -4,7 +4,7 @@ using Prime31;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
-using UnityEditor;
+//using UnityEditor;
 
 [RequireComponent(typeof(CharacterController2D), typeof(AnimationController2D))]
 public class PlayerController : MonoBehaviour {
