@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
 
     public AudioClip jumpSound;
 	public AudioClip steamSound;
+    public AudioClip explodeSound;
     [Tooltip("How loud the steam sound plays")]
     public float steamVolume = .1f;
 
@@ -90,7 +91,9 @@ public class PlayerController : MonoBehaviour {
         gameCamera.GetComponent<CameraFollow2D>().startCameraFollow(this.gameObject);
         currHealth = startHealth;
 
-        updateHealth();       
+        updateHealth();
+
+        gameObject.GetComponent<Collider2D>().enabled = true;
 
         level = SceneManager.sceneCountInBuildSettings;
     }
@@ -295,6 +298,7 @@ public class PlayerController : MonoBehaviour {
 
     private void PlayerExplode() {
         // create the circle
+        SoundManager.instance.PlaySingle(explodeSound);
         PlayerDamage(explodeDamage);
         initialExplode.startSpeed = explodeRadius;
         continuousExplode.startSpeed = explodeRadius;
@@ -365,6 +369,8 @@ public class PlayerController : MonoBehaviour {
     }
 
 	private void PlayerNextLevel(){
+        //ensure the player can't get hurt
+        gameObject.GetComponent<Collider2D>().enabled = false;
         continuePanel.SetActive(true);
         Time.timeScale = 0;
     }
@@ -374,6 +380,7 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     public void PlayerWin() {
         //TODO have a last panel?
+        gameObject.GetComponent<Collider2D>().enabled = false;
         winPanel.SetActive(true);
         Time.timeScale = 0;
     }
