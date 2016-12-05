@@ -23,7 +23,7 @@ GameObject:
   - 61: {fileID: 61000012377109736}
   m_Layer: 8
   m_Name: Block_3x1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013424718776}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.83169, y: 9.07872, z: 1.40625}
+  m_LocalPosition: {x: 1.984024, y: 1.6023852, z: 1.40625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

@@ -280,6 +280,7 @@ MonoBehaviour:
   continuousExplode: {fileID: 198000010175385002}
   jumpSound: {fileID: 8300000, guid: 56034442909e34d5d8333b5d241cb643, type: 3}
   steamSound: {fileID: 8300000, guid: 72c33614228b892409e812a80896aa93, type: 3}
+  explodeSound: {fileID: 8300000, guid: 0e19e0787b842ea4db8a371c9956d244, type: 3}
   steamVolume: 0.1
   walkSpeed: 4.5
   jumpHeight: 4
@@ -294,6 +295,7 @@ MonoBehaviour:
   invincibilityTime: 0.2
   explodeRadius: 3
   explodeDamage: 10
+  burnLength: 0.75
 --- !u!114 &114000013510112206
 MonoBehaviour:
   m_ObjectHideFlags: 1

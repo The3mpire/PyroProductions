@@ -23,7 +23,7 @@ GameObject:
   - 61: {fileID: 61000013388205304}
   m_Layer: 8
   m_Name: Block_8x1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
