@@ -21,9 +21,11 @@ GameObject:
   - 4: {fileID: 4000010772992426}
   - 212: {fileID: 212000013999907212}
   - 61: {fileID: 61000013449179744}
+  - 114: {fileID: 114000012072382032}
+  - 95: {fileID: 95000012330061694}
   m_Layer: 8
   m_Name: Burning Stump
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +57,38 @@ BoxCollider2D:
   m_Offset: {x: -0.042520523, y: -0.36967468}
   serializedVersion: 2
   m_Size: {x: 5.018872, y: 7.260649}
+--- !u!95 &95000012330061694
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010055356002}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6fcd7202d39535544aa67c5118650ef4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000012072382032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010055356002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75605bdf68e96b4eab6b8843ea65d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burnSound: {fileID: 8300000, guid: 20e3dee7cad8596488d61ab1cccacf95, type: 3}
+  burnLength: 0.3
+  canRespawn: 0
+  leafRespawn: 0
 --- !u!212 &212000013999907212
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -82,7 +116,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1796184419
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 561ff63bf6932984c90e0afbb062eb80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

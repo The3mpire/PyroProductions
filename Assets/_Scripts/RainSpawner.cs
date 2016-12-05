@@ -10,11 +10,12 @@ public class RainSpawner : MonoBehaviour {
     [Tooltip("How fast the drops will spawn(in seconds)")]
     public float spawnRate = .3f;
 
-    public bool isSpawning = true;
-
     public GameObject rainDrop;
 
-    private float height;
+    public bool isSpawning = true;
+
+    [Tooltip("")]
+    public float startSpawnDelay = .5f;
 
     private List<GameObject> rainDrops = new List<GameObject>();
 
@@ -27,13 +28,28 @@ public class RainSpawner : MonoBehaviour {
             drop.SetActive(false);
             rainDrops.Add(drop);
         }
+        StartSpawning();
+    }
 
+    public void StartSpawning() {
+        StartCoroutine(StartSpawning(startSpawnDelay));
+        isSpawning = true;
+    }
+
+    public void StopSpawning() {
+        CancelInvoke("spawnDrops");
+        isSpawning = false;
+    }
+
+    IEnumerator StartSpawning(float delay) {
+        yield return new WaitForSeconds(delay);
+        
         //set up spawning
         InvokeRepeating("spawnDrops", 0f, spawnRate);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 	
 	}
 

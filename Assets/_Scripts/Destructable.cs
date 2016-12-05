@@ -6,6 +6,9 @@ public class Destructable : MonoBehaviour {
 	public AudioClip burnSound;
     public float burnLength = 0.3f;
 
+    [Tooltip("If the destructable is allowed to respawn")]
+    public bool canRespawn = true;
+
 	[Tooltip("How long the leaf will take to respawn")]	
 	public float leafRespawn = 1f;
 
@@ -23,10 +26,13 @@ public class Destructable : MonoBehaviour {
 	public void Burn(){
         GetComponent<Animator>().SetBool("hasEntered", true);
 		SoundManager.instance.PlaySingle(burnSound);
-      
-        //TODO isSpawning??
-        GetComponentInChildren<RainSpawner>().gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        GetComponentInChildren<RainSpawner>().gameObject.GetComponent<Collider2D>().enabled = false;
+
+        if (canRespawn) {
+            //TODO isSpawning??
+            GetComponentInChildren<RainSpawner>().StopSpawning();
+            //GetComponentInChildren<RainSpawner>().gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            //GetComponentInChildren<RainSpawner>().gameObject.GetComponent<Collider2D>().enabled = false;
+        }
     }
 
 	public void Disintegrate(){
@@ -41,10 +47,12 @@ public class Destructable : MonoBehaviour {
 		GetComponentInChildren<Collider2D> ().enabled = false;
 
         yield return new WaitForSeconds(time);
-
-		GetComponent<SpriteRenderer> ().enabled = false;
-		GetComponent<Animator> ().SetTrigger ("reset");
-		StartCoroutine (LeafCooldown (leafRespawn));
+        
+        if (canRespawn) {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<Animator>().SetTrigger("reset");
+            StartCoroutine(LeafCooldown(leafRespawn));
+        }
     }
 
 	private IEnumerator LeafCooldown(float time){
@@ -53,8 +61,7 @@ public class Destructable : MonoBehaviour {
 		GetComponent<SpriteRenderer> ().enabled = true;
 		GetComponent<Collider2D> ().enabled = true;
 		GetComponentInChildren<Collider2D> ().enabled = true;
-        GetComponentInChildren<RainSpawner>().gameObject.GetComponent<SpriteRenderer>().enabled = true;
-        GetComponentInChildren<RainSpawner>().gameObject.GetComponent<Collider2D>().enabled = true;
+        GetComponentInChildren<RainSpawner>().StartSpawning();
 
     }
 

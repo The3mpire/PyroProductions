@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour {
     public GameObject continuePanel;
 	public GameObject pausePanel;
 
+    public ParticleSystem initialExplode;
+    public ParticleSystem continuousExplode;
+
     public AudioClip jumpSound;
 	public AudioClip steamSound;
     [Tooltip("How loud the steam sound plays")]
@@ -49,6 +52,8 @@ public class PlayerController : MonoBehaviour {
     public float explodeRadius = 3f;
     [Tooltip("How much damage exploding does to the player")]
     public int explodeDamage = 15;
+    [Tooltip("How long the finish animation takes to play")]
+    public float burnLength = .75f;
 
     private CharacterController2D _controller;
     private Animator _animator;
@@ -65,9 +70,15 @@ public class PlayerController : MonoBehaviour {
 
     private Direction facing = Direction.right;
 
+
+    void Awake() {
+        initialExplode.Stop();
+        continuousExplode.Stop();
+    }
         
     // Use this for initialization
 	void Start () {
+      
         Time.timeScale = 1;
 
 		healthBar.SetActive(true);
@@ -79,7 +90,7 @@ public class PlayerController : MonoBehaviour {
         gameCamera.GetComponent<CameraFollow2D>().startCameraFollow(this.gameObject);
         currHealth = startHealth;
 
-        updateHealth();
+        updateHealth();       
 
         level = SceneManager.sceneCountInBuildSettings;
     }
@@ -170,6 +181,13 @@ public class PlayerController : MonoBehaviour {
         //explode
         else if (Input.GetButtonDown("Explode") && canExplode && _controller.isGrounded) {
             PlayerExplode();
+            //ParticleSystem.EmissionModule em = initialExplode.emission;
+            //em.enabled = true;
+            //ParticleSystem.EmissionModule em1 = continuousExplode.emission;
+            //em1.enabled = true;
+            initialExplode.Play();
+            continuousExplode.Play();
+            _animator.SetTrigger("isExploding");
             canExplode = false;
             damageable = false;
             playerControl = false;
@@ -178,7 +196,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     private IEnumerator ExplodeCooldowns(float time) {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(time + .1f);
+        initialExplode.Stop();
+        continuousExplode.Stop();        
+
         canExplode = true;
         damageable = true;
         playerControl = true;
@@ -197,11 +218,11 @@ public class PlayerController : MonoBehaviour {
                     StartCoroutine(DamageCoolDown(invincibilityTime));
                 }
                 break;
-			case "NextLevel":
-				PlayerNextLevel ();
+            case "NextLevel":
+                StartCoroutine(PlayerWinAnim(col, burnLength, false));
 				break;
             case "Win":
-                PlayerWin();
+                StartCoroutine(PlayerWinAnim(col, burnLength, true));
                 break;
             case "Growing":
                 col.gameObject.SetActive(false);
@@ -210,6 +231,17 @@ public class PlayerController : MonoBehaviour {
 			case "Destructable":	
 				col.GetComponentInParent<Destructable>().Burn();					
 				break;
+        }
+    }
+
+    IEnumerator PlayerWinAnim(Collider2D col, float time, bool hasWon) {
+        col.gameObject.GetComponent<Animator>().SetTrigger("hasWon");
+        yield return new WaitForSeconds(time);
+        if (hasWon) {
+            PlayerWin();
+        }
+        else {
+            PlayerNextLevel();
         }
     }
 
@@ -264,6 +296,8 @@ public class PlayerController : MonoBehaviour {
     private void PlayerExplode() {
         // create the circle
         PlayerDamage(explodeDamage);
+        initialExplode.startSpeed = explodeRadius;
+        continuousExplode.startSpeed = explodeRadius;
         Collider2D[] destructables = Physics2D.OverlapCircleAll(transform.position, explodeRadius * transform.localScale.x, -LayerMask.NameToLayer("Platform"));
         foreach(Collider2D col in destructables) {
             if(col.tag == "Destructable") {
@@ -321,7 +355,7 @@ public class PlayerController : MonoBehaviour {
 
 		_animator.SetBool("isDead", true);
 
-		GetComponentInChildren<ParticleSystem>().enableEmission = false;
+        GetComponentInChildren<ParticleSystem>().Stop();
 
 		GameManager.SetPlayerDead (true);
 

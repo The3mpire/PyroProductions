@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010827168466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.84, y: -0.27, z: 0}
+  m_LocalPosition: {x: -0.787, y: -0.394, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -95,8 +95,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010483499554}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.37, y: 2.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5878687, y: 39.376766, z: 0.703125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -162,7 +162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burnSound: {fileID: 8300000, guid: 20e3dee7cad8596488d61ab1cccacf95, type: 3}
   burnLength: 0.3
-  leafRespawn: 1
+  canRespawn: 1
+  leafRespawn: 3
 --- !u!114 &114000011425586068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,8 +176,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rainPool: 20
-  spawnRate: 1.1
+  spawnRate: 1.5
   rainDrop: {fileID: 1000011710027810, guid: 498b9e16c6755480298d1586b9a85bd0, type: 2}
+  isSpawning: 1
+  startSpawnDelay: 0
 --- !u!212 &212000010286772282
 SpriteRenderer:
   m_ObjectHideFlags: 1
