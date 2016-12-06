@@ -104,9 +104,11 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetButtonDown("Cancel") && !menu) {
 			pausePanel.SetActive (true);
 			menu = true;
+			Cursor.visible = true;
 			Time.timeScale = 0;
 		} else if (Input.GetButtonDown("Cancel") && menu) {
 			pausePanel.SetActive (false);
+			Cursor.visible = false;
 			menu = false;
 			Time.timeScale = 1;
 		}   
@@ -217,6 +219,7 @@ public class PlayerController : MonoBehaviour {
             case "Damaging":
                 if (damageable) {
                     PlayerDamage(damage);
+					SoundManager.instance.PlaySingle(steamSound, steamVolume);
                     damageable = false;
                     StartCoroutine(DamageCoolDown(invincibilityTime));
                 }
@@ -281,7 +284,6 @@ public class PlayerController : MonoBehaviour {
     /// <param name="dmg"></param>
     private void PlayerDamage(int dmg) {
         currHealth -= dmg;
-		SoundManager.instance.PlaySingle(steamSound, steamVolume);
         if(currHealth > 0) {
             updateHealth();
         }
@@ -365,13 +367,17 @@ public class PlayerController : MonoBehaviour {
 
         healthBar.SetActive(false);
         gameOverPanel.SetActive(true);
+		Cursor.visible = true;
 		gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
     }
 
 	private void PlayerNextLevel(){
         //ensure the player can't get hurt
+		GameManager.SetPoints (currHealth);
         gameObject.GetComponent<Collider2D>().enabled = false;
+		continuePanel.GetComponentInChildren<Text> ().text = "Points: " + (PlayerPrefs.GetInt("points") + currHealth);
         continuePanel.SetActive(true);
+		Cursor.visible = true;
         Time.timeScale = 0;
     }
 
@@ -381,7 +387,9 @@ public class PlayerController : MonoBehaviour {
     public void PlayerWin() {
         //TODO have a last panel?
         gameObject.GetComponent<Collider2D>().enabled = false;
-        winPanel.SetActive(true);
+
+		winPanel.SetActive(true);
+		Cursor.visible = true;
         Time.timeScale = 0;
     }
 #endregion

@@ -29,11 +29,15 @@ public class SoundManager : MonoBehaviour {
     }
 
     void Start() {
+		// play the game song
         if (instance.musicSource.clip != gameSong && instance.musicSource.clip != null) {
             instance.musicSource.clip = gameSong;
+			Cursor.visible = false;
         }
+		// play the menu song
         else {
             instance.musicSource.clip = menuSong;
+			//Cursor.visible = true;
         }
         instance.musicSource.Play();
     }
@@ -44,12 +48,14 @@ public class SoundManager : MonoBehaviour {
                 instance.musicSource.clip = menuSong;
                 instance.musicSource.Play();
             }
+			Cursor.visible = true;
         }
         else{
             if (instance.musicSource.clip != gameSong) {
                 instance.musicSource.clip = gameSong;
                 instance.musicSource.Play();
             }
+			Cursor.visible = false;
         }
     }
 
