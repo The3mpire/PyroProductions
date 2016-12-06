@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     public GameObject gameCamera;
-    public GameObject healthBar;
+    
+    public ParticleSystem healthBar;
     public GameObject gameOverPanel;
     public GameObject winPanel;
     public GameObject continuePanel;
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour {
 	private bool menu = false;
     private bool damageable = true;
     private bool canExplode = true;
+    private float maxParticleSize = 2f;
 
     private int level;
 
@@ -82,7 +84,7 @@ public class PlayerController : MonoBehaviour {
       
         Time.timeScale = 1;
 
-		healthBar.SetActive(true);
+		healthBar.Play();
 
         _controller = GetComponent<CharacterController2D>();
         _animator = GetComponent<Animator>();
@@ -336,10 +338,11 @@ public class PlayerController : MonoBehaviour {
 
 		//update healthbar
 		float normalizedHealth = (float)currHealth / (float)maxHealth;
-		healthBar.GetComponent<RectTransform> ().sizeDelta = new Vector2 (normalizedHealth * 256, 32);
 
+        healthBar.startLifetime = 2 + normalizedHealth;
+        healthBar.startSize = normalizedHealth;
 
-		//update robot size
+        //update robot size
         Vector3 prevScale = transform.localScale;
         float newScale = minScale + (normalizedHealth * (maxScale - minScale));
 
@@ -365,7 +368,7 @@ public class PlayerController : MonoBehaviour {
 
 		GameManager.SetPlayerDead (true);
 
-        healthBar.SetActive(false);
+        healthBar.Stop();
         gameOverPanel.SetActive(true);
 		Cursor.visible = true;
 		gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();

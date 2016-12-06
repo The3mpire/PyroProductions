@@ -64,11 +64,11 @@ public class SoundManager : MonoBehaviour {
 		fxSource.PlayOneShot(clip, volume);
     }
 
-	public void SetSFXVolume(float vol){
+	public void SetSFXVolume(float vol = 1f){
 		fxSource.volume = vol;
 	}
 
-	public void SetMusicVolume(float vol){
+	public void SetMusicVolume(float vol = 1f){
 		musicSource.volume = vol;
 	}
 

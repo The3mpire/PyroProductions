@@ -20,9 +20,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010224708528}
   - 212: {fileID: 212000011181901610}
-  m_Layer: 0
+  - 61: {fileID: 61000011684415118}
+  - 95: {fileID: 95000011739334508}
+  - 114: {fileID: 114000011867192302}
+  m_Layer: 10
   m_Name: Bush Burn
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,12 +37,58 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012362673926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1811037, y: 2.845759, z: 0}
+  m_LocalPosition: {x: 24.356049, y: 6.436036, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &61000011684415118
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012362673926}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.13835335, y: -1.079405}
+  serializedVersion: 2
+  m_Size: {x: 2.8178153, y: 3.84119}
+--- !u!95 &95000011739334508
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012362673926}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d956dc94a119a24b8a679e4a21de824, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000011867192302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012362673926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75605bdf68e96b4eab6b8843ea65d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burnSound: {fileID: 8300000, guid: 20e3dee7cad8596488d61ab1cccacf95, type: 3}
+  burnLength: 0.5833333
+  canRespawn: 0
+  leafRespawn: 1
 --- !u!212 &212000011181901610
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -67,8 +116,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1796184419
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: df5f5239ee4401a49a2bc26d58ec77c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

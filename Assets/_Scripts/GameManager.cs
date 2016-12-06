@@ -7,16 +7,16 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
 
-	public bool playerDead = false;
+    public bool playerDead = false;
 
-	public Button continueGame;
-	public Image continueText;
+    public Button continueGame;
+    public Image continueText;
 
-	private int points = 0;
+    private int points = 0;
 
-	// Use this for initialization
-	void Start () {
-	}
+    // Use this for initialization
+    void Start() {
+    }
 
     void Awake() {
         // First we check if there are any other instances conflicting
@@ -25,11 +25,11 @@ public class GameManager : MonoBehaviour {
             // If that is the case, we destroy other instances
             Destroy(gameObject);
         }
-			
-		if (PlayerPrefs.GetInt ("level") != 0 && continueGame != null) {
-			continueGame.interactable = true;
-			continueText.color = new Color (1, 1, 1);
-		}
+
+        if (PlayerPrefs.GetInt("level") != 0 && continueGame != null) {
+            continueGame.interactable = true;
+            continueText.color = new Color(1, 1, 1);
+        }
 
         // Here we save our singleton instance
         instance = this;
@@ -38,49 +38,55 @@ public class GameManager : MonoBehaviour {
     }
 
 
-	public static void SetPoints(int score){
-		instance.points = score;
-	}
+    public static void SetPoints(int score) {
+        instance.points = score;
+    }
 
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    // Update is called once per frame
+    void Update() {
 
-	public static void SetPlayerDead(bool status){
-		instance.playerDead = status;
-	}
+    }
 
-	public static bool GetPlayerDead(){
-		return instance.playerDead;
-	}
+    public static void SetPlayerDead(bool status) {
+        instance.playerDead = status;
+    }
+
+    public static bool GetPlayerDead() {
+        return instance.playerDead;
+    }
 
     public void RestartLevel() {
-		Cursor.visible = false;
+        Cursor.visible = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void RestartGame(){
-		Cursor.visible = false;
+    public void RestartGame() {
+        Cursor.visible = false;
         SceneManager.LoadScene(0);
     }
 
-	public void ContinueGame(){
-		Cursor.visible = false;
-		SceneManager.LoadScene(PlayerPrefs.GetInt("level"));
-	}
+    public void ContinueGame() {
+        Cursor.visible = false;
+        SceneManager.LoadScene(PlayerPrefs.GetInt("level"));
+    }
 
     public void ExitLevel() {
-		Cursor.visible = false; 
-		SceneManager.LoadScene(0);
+        Cursor.visible = false;
+        SceneManager.LoadScene(0);
     }
 
     public void StartGame() {
-		PlayerPrefs.SetInt ("points", 0);
-		PlayerPrefs.SetInt ("level", 0);
-		Cursor.visible = false;
-		SceneManager.LoadScene(1);
+        PlayerPrefs.SetInt("points", 0);
+        PlayerPrefs.SetInt("level", 0);
+        Cursor.visible = false;
+        SceneManager.LoadScene(1);
     }
+
+   //private IEnumerator menuWait(float time)
+   // {
+   //     yield return new WaitForSeconds(time);
+      
+   // }
 
 	public void ExitGame() {
         Application.Quit();
