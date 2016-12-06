@@ -63,7 +63,15 @@ public class SoundManager : MonoBehaviour {
     public void PlaySingle(AudioClip clip, float volume = 1f) {
 		fxSource.PlayOneShot(clip, volume);
     }
-    
+
+	public void SetSFXVolume(float vol){
+		fxSource.volume = vol;
+	}
+
+	public void SetMusicVolume(float vol){
+		musicSource.volume = vol;
+	}
+
     //RandomizeSfx chooses randomly between various audio clips and slightly changes their pitch.
     public void RandomizeSfx(params AudioClip[] clips) {
         //Generate a random number between 0 and the length of our array of clips passed in.

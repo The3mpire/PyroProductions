@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour {
 
     public void RestartGame(){
 		Cursor.visible = false;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 
 	public void ContinueGame(){
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour {
 
     public void ExitLevel() {
 		Cursor.visible = false; 
-		SceneManager.LoadScene("MainMenu");
+		SceneManager.LoadScene(0);
     }
 
     public void StartGame() {
