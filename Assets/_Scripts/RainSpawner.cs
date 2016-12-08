@@ -12,7 +12,9 @@ public class RainSpawner : MonoBehaviour {
 
     public GameObject rainDrop;
 
-    public bool isSpawning = true;
+    public bool canSpawn = true;
+
+    private bool isSpawning = true;
 
     [Tooltip("")]
     public float startSpawnDelay = .5f;
@@ -32,8 +34,10 @@ public class RainSpawner : MonoBehaviour {
     }
 
     public void StartSpawning() {
-        StartCoroutine(StartSpawning(startSpawnDelay));
-        isSpawning = true;
+        if (canSpawn) {
+            StartCoroutine(StartSpawning(startSpawnDelay));
+            isSpawning = true;
+        }
     }
 
     public void StopSpawning() {
