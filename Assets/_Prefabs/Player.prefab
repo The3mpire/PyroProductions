@@ -135,8 +135,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013880302602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 1.64, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0.04, y: -0.36, z: 0}
+  m_LocalScale: {x: 0.5845312, y: 0.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012869837458}
@@ -272,23 +272,22 @@ MonoBehaviour:
   gameCamera: {fileID: 0}
   healthBar: {fileID: 0}
   gameOverPanel: {fileID: 0}
-  winPanel: {fileID: 1000010278645048, guid: 492cd8237ff4942cf855f6250b39a79d, type: 2}
-  continuePanel: {fileID: 1000010587153094, guid: 492cd8237ff4942cf855f6250b39a79d,
-    type: 2}
+  winPanel: {fileID: 0}
+  continuePanel: {fileID: 0}
   pausePanel: {fileID: 0}
   initialExplode: {fileID: 198000013469195282}
   continuousExplode: {fileID: 198000010175385002}
   jumpSound: {fileID: 8300000, guid: 56034442909e34d5d8333b5d241cb643, type: 3}
   steamSound: {fileID: 8300000, guid: 72c33614228b892409e812a80896aa93, type: 3}
   explodeSound: {fileID: 8300000, guid: 0e19e0787b842ea4db8a371c9956d244, type: 3}
-  steamVolume: 0.1
+  steamVolume: 0.25
   walkSpeed: 4.5
   jumpHeight: 4
   gravity: -35
   maxHealth: 75
   startHealth: 50
-  damage: 5
-  food: 5
+  damage: 20
+  food: 3
   maxScale: 1.6
   minScale: 0.5
   particleSize: 1

@@ -6,6 +6,8 @@ public class Destructable : MonoBehaviour {
 	public AudioClip burnSound;
     public float burnLength = 0.3f;
 
+	public bool isFood = false;
+
     [Tooltip("If the destructable is allowed to respawn")]
     public bool canRespawn = true;
 

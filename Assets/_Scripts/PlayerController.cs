@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour {
     private CharacterController2D _controller;
     private Animator _animator;
 	private AnimationController2D animControl;
-    //[SerializeField]
+    [SerializeField]
     private int currHealth = 0;
     private bool playerControl = true;
     private bool jump = false;

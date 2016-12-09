@@ -163,7 +163,7 @@ MonoBehaviour:
   burnSound: {fileID: 8300000, guid: 20e3dee7cad8596488d61ab1cccacf95, type: 3}
   burnLength: 0.3
   canRespawn: 1
-  leafRespawn: 3
+  leafRespawn: 2
 --- !u!114 &114000011425586068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,7 +178,7 @@ MonoBehaviour:
   rainPool: 20
   spawnRate: 1.5
   rainDrop: {fileID: 1000011710027810, guid: 498b9e16c6755480298d1586b9a85bd0, type: 2}
-  isSpawning: 1
+  canSpawn: 1
   startSpawnDelay: 0
 --- !u!212 &212000010286772282
 SpriteRenderer:

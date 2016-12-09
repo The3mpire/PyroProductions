@@ -90,6 +90,49 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &6748665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 6748666}
+  - 61: {fileID: 6748667}
+  m_Layer: 10
+  m_Name: FoodTrigger
+  m_TagString: Growing
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6748666
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 6748665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1219646254}
+  m_RootOrder: 0
+--- !u!61 &6748667
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 6748665}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.13835335, y: -1.079405}
+  serializedVersion: 2
+  m_Size: {x: 2.8178153, y: 3.84119}
 --- !u!1001 &11123425
 Prefab:
   m_ObjectHideFlags: 0
@@ -601,11 +644,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010707624404, guid: 492cd8237ff4942cf855f6250b39a79d,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1160517779}
     - target: {fileID: 114000010361690006, guid: 492cd8237ff4942cf855f6250b39a79d,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -641,12 +679,17 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1160517779}
-    - target: {fileID: 114000013866214760, guid: 492cd8237ff4942cf855f6250b39a79d,
+    - target: {fileID: 114000010707624404, guid: 492cd8237ff4942cf855f6250b39a79d,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1160517779}
     - target: {fileID: 114000014277189600, guid: 492cd8237ff4942cf855f6250b39a79d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1160517779}
+    - target: {fileID: 114000013866214760, guid: 492cd8237ff4942cf855f6250b39a79d,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -994,6 +1037,16 @@ Prefab:
         type: 2}
       propertyPath: steamVolume
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013170367108, guid: 5f36c682b05b24f6383b418a50b183f8,
+        type: 2}
+      propertyPath: startHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013170367108, guid: 5f36c682b05b24f6383b418a50b183f8,
+        type: 2}
+      propertyPath: food
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f36c682b05b24f6383b418a50b183f8, type: 2}
@@ -1993,6 +2046,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 700a7d8284c6985429b37b4073fa93cd, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1219646254 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000010224708528, guid: fb3dede34b665ce4a9dcd7ea8afa0b40,
+    type: 2}
+  m_PrefabInternal: {fileID: 1184219154}
 --- !u!4 &1230986435 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012221132444, guid: 5b7f9a8cba0c5b64eaf1d8e030b2e1ac,
