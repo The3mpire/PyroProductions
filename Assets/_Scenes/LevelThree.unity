@@ -1653,6 +1653,11 @@ Prefab:
       propertyPath: damage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013170367108, guid: 5f36c682b05b24f6383b418a50b183f8,
+        type: 2}
+      propertyPath: steamVolume
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f36c682b05b24f6383b418a50b183f8, type: 2}
   m_IsPrefabParent: 0
