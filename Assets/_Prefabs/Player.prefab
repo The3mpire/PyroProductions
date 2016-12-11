@@ -186,7 +186,7 @@ Rigidbody2D:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &61000014023184172
 BoxCollider2D:
@@ -295,6 +295,7 @@ MonoBehaviour:
   explodeRadius: 3
   explodeDamage: 10
   burnLength: 0.75
+  currHealth: 0
 --- !u!114 &114000013510112206
 MonoBehaviour:
   m_ObjectHideFlags: 1
