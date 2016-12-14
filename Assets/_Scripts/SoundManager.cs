@@ -48,7 +48,7 @@ public class SoundManager : MonoBehaviour {
                 instance.musicSource.clip = menuSong;
                 instance.musicSource.Play();
             }
-			Cursor.visible = true;
+			//Cursor.visible = true;
         }
         else{
             if (instance.musicSource.clip != gameSong) {

@@ -4,6 +4,7 @@ using Prime31;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.EventSystems;
 //using UnityEditor;
 
 [RequireComponent(typeof(CharacterController2D), typeof(AnimationController2D))]
@@ -105,13 +106,15 @@ public class PlayerController : MonoBehaviour {
         
 		if (Input.GetButtonDown("Cancel") && !menu) {
 			pausePanel.SetActive (true);
-			menu = true;
-			Cursor.visible = true;
+            EventSystem.current.SetSelectedGameObject(pausePanel.GetComponentInChildren<Button>().gameObject);
+            menu = true;
+			//Cursor.visible = true;
 			Time.timeScale = 0;
 		} else if (Input.GetButtonDown("Cancel") && menu) {
 			pausePanel.SetActive (false);
 			Cursor.visible = false;
-			menu = false;
+            EventSystem.current.SetSelectedGameObject(null);
+            menu = false;
 			Time.timeScale = 1;
 		}   
 
@@ -370,7 +373,8 @@ public class PlayerController : MonoBehaviour {
 
         healthBar.Stop();
         gameOverPanel.SetActive(true);
-		Cursor.visible = true;
+        EventSystem.current.SetSelectedGameObject(continuePanel.GetComponentInChildren<Button>().gameObject);
+       // Cursor.visible = true;
 		gameCamera.GetComponent<CameraFollow2D>().stopCameraFollow();
     }
 
@@ -380,7 +384,8 @@ public class PlayerController : MonoBehaviour {
         gameObject.GetComponent<Collider2D>().enabled = false;
 		continuePanel.GetComponentInChildren<Text> ().text = "Points: " + (PlayerPrefs.GetInt("points") + currHealth);
         continuePanel.SetActive(true);
-		Cursor.visible = true;
+        EventSystem.current.SetSelectedGameObject(continuePanel.GetComponentInChildren<Button>().gameObject);
+       // Cursor.visible = true;
         Time.timeScale = 0;
     }
 
@@ -392,7 +397,8 @@ public class PlayerController : MonoBehaviour {
         gameObject.GetComponent<Collider2D>().enabled = false;
 
 		winPanel.SetActive(true);
-		Cursor.visible = true;
+        EventSystem.current.SetSelectedGameObject(winPanel.GetComponentInChildren<Button>().gameObject);
+        //Cursor.visible = true;
         Time.timeScale = 0;
     }
 #endregion

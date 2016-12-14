@@ -162,8 +162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burnSound: {fileID: 8300000, guid: 20e3dee7cad8596488d61ab1cccacf95, type: 3}
   burnLength: 0.3
+  isFood: 0
   canRespawn: 1
-  leafRespawn: 2
+  leafRespawn: 1.5
 --- !u!114 &114000011425586068
 MonoBehaviour:
   m_ObjectHideFlags: 1

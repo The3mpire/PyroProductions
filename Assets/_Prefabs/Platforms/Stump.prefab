@@ -23,7 +23,7 @@ GameObject:
   - 68: {fileID: 68000013425884670}
   m_Layer: 8
   m_Name: Stump
-  m_TagString: NextLevel
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011780802078}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.32, y: 13.7, z: 0}
+  m_LocalPosition: {x: 22.673918, y: 28.282719, z: 0.703125}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -102,14 +102,14 @@ EdgeCollider2D:
   m_Points:
   - {x: 1.1264725, y: -1.0709457}
   - {x: 1.2079077, y: -0.46290207}
-  - {x: 0.94688797, y: 0.13172278}
+  - {x: 1.0491436, y: 0.13172278}
   - {x: 1.0305908, y: 0.9307709}
   - {x: 0.8660094, y: 0.9212259}
   - {x: 0.8675696, y: -0.4926777}
   - {x: -0.5623112, y: -0.47782072}
   - {x: -0.5001952, y: 0.95817184}
   - {x: -0.64601135, y: 0.9434109}
-  - {x: -0.6793518, y: -0.046676636}
+  - {x: -0.7889125, y: -0.046676636}
   - {x: -1.1854935, y: -1.0179806}
   - {x: 1.0915229, y: -1.0583458}
 --- !u!95 &95000010992379936
